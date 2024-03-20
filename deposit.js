@@ -10,13 +10,20 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
     let previousDepositAmount = document.getElementById('previous-deposit');
     console.log(previousDepositAmount.innerText);
 
-    console.log(typeof(previousDepositAmount.innerText));
-    console.log(typeof(depositAmount.value));
+    let balance = document.getElementById('initial-balance');
+    console.log("balance is" + balance.innerText);
 
-    let depositAmountUpdated = parseInt(previousDepositAmount.innerText); 
-    let newDepositAmount = parseInt(depositAmount.value);
+    if(depositAmount.value === ''){
+        alert("Please insert a correct amount");
+    }
+    else{
+        let depositAmountUpdated = parseInt(previousDepositAmount.innerText); 
+        let newDepositAmount = parseInt(depositAmount.value);
+        let mainBalance = parseInt(balance.innerText);
 
-    console.log("deposit Amount updated is"+ depositAmountUpdated);
+        balance.innerText = mainBalance + newDepositAmount;
+
+    
 
     if(depositAmountUpdated > 0 ){
 
@@ -33,7 +40,9 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
          previousDepositAmount.innerText = depositAmountUpdated + newDepositAmount;
     }
 
-   
+    }
+
+   depositAmount.value = '';
 
     
 });
