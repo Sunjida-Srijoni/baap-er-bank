@@ -21,7 +21,11 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
         let newWithdrawAmount = parseInt(withdrawAmount.value);
          let mainBalance = parseInt(balance.innerText);
 
-         balance.innerText = mainBalance - newWithdrawAmount;
+         if(newWithdrawAmount > mainBalance){
+            alert("You can not withdraw more than your balance");
+         }
+         else{
+            balance.innerText = mainBalance - newWithdrawAmount;
 
     
 
@@ -32,11 +36,14 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
      else{
 
 
-
           initialWithdrawAmount.innerText = initialWithdrawAmountInt + newWithdrawAmount;
      }
 
-     }
+    }
+
+         
+
+    }
 
    withdrawAmount.value = '';
 
